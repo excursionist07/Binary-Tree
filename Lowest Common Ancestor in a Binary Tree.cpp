@@ -15,7 +15,7 @@ typedef long long int ll;
 ll HRX=1e18;
 ll INF=1e9+7;
 
-   of them return pointer to left.*/
+  
 Node * lca(Node* root ,int n1 ,int n2 )
 {
    if(root==NULL)
