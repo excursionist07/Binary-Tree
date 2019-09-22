@@ -19,13 +19,30 @@ ll INF=1e9+7;
 int height(Node *root)
 {
   if(root==NULL)
-   return 0;
+   return -1;
   int LH=height(root->left);
   int RH=height(root->right);
-  return (LH==52 || abs(LH-RH)>1)? 52 : (max(LH,RH)+1);
+  return 1+max(LH,RH);
 
 }
-bool isBalanced(Node *root)
-{
-  return (height(root)==52)?0:1;
-}
+
+  bool isBalanced(node* root) 
+{ 
+   
+  
+    /* If tree is empty then return true */
+    if (root == NULL) 
+        return 1; 
+  
+    /* Get the height of left and right sub trees */
+    int lh = height(root->left); 
+    int rh = height(root->right); 
+  
+    if (abs(lh - rh) <= 1 && isBalanced(root->left) && isBalanced(root->right)) 
+        return 1; 
+  
+    /* If we reach here then  
+    tree is not height-balanced */
+    return 0; 
+} 
+
