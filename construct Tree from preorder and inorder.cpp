@@ -25,21 +25,21 @@ int search(int in[],int start,int end,int p)
 }
 Node* buildTree(int in[],int pre[], int inStrt, int inEnd)
 {
-
+  
   if(inStrt>inEnd)
    return NULL;
-  Node* temp=new Node();
-  temp->data=pre[preIndex];
+  Node* temp=new Node(pre[preIndex]);
+  //temp->data=;
   temp->left=NULL;
   temp->right=NULL;
   preIndex++;
-
+  
   if(inStrt==inEnd)
    return temp;
   int zz=search(in,inStrt,inEnd,temp->data);
   temp->left=buildTree(in,pre,inStrt,zz-1);
   temp->right=buildTree(in,pre,zz+1,inEnd);
-
+  
   return temp;
-
+   
 }
