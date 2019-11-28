@@ -30,24 +30,26 @@ Node *part(int in[],int post[],int start,int end)
 {
  if(start>end)
   return NULL;
- Node *temp=new Node();
- temp->data=post[ind--];
+ Node *temp=new Node(post[ind]);
+ //temp->data=;
  temp->left=NULL;
  temp->right=NULL;
-
+ ind--;
+ 
  if(start==end)
   return temp;
  int zz=search(in,start,end,temp->data);
- temp->left=part(in,post,start,zz-1);
+ 
  temp->right=part(in,post,zz+1,end);
-
+ temp->left=part(in,post,start,zz-1);
+ 
  return temp;
-
+   
 }
 Node *buildTree(int in[], int post[], int n)
 {
  ind=n-1;
- return part(in,post,0,n-1);
-
+ return part(in,post,0,n-1); 
+  
 }
-
+    
