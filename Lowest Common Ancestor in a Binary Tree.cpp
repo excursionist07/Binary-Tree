@@ -16,17 +16,17 @@ ll HRX=1e18;
 ll INF=1e9+7;
 
   
-Node * lca(Node* root ,int n1 ,int n2 )
+Node* lca(Node* root,int a,int b)
 {
-   if(root==NULL)
-     return NULL;
-   if(root->data==n1 || root->data==n2)
-      return root;
-
-   Node* left_lca=lca(root->left,n1,n2);
-   Node* right_lca=lca(root->right,n1,n2);
-
-   if(left_lca && right_lca)
-     return root;
-   return (left_lca!=NULL)? left_lca : right_lca;
+ if(root==NULL)
+  return NULL;
+ if(root->data==a || root->data==b)
+   return root;
+ Node* l=lca(root->left,a,b);
+ Node* r=lca(root->right,a,b);
+ if(l && r)return root;
+ if(!l && !r)return NULL;
+ if(l) return l;
+ if(r) return r;
+  
 }
