@@ -15,7 +15,7 @@ Node *convertToDLL(Node *root,Node **head_ref)
      *head_ref=root;
 
    }
-   return NULL;
+   return NULL; // this statement detaches the leaf from the tree
  }
 
   root->right=convertToDLL(root->right,head_ref);
