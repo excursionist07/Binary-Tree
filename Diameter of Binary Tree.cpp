@@ -32,6 +32,6 @@ int diameter(Node* node)
 
  int left_dm=diameter(node->left);
  int right_dm=diameter(node->right);
- return max(1+left_ht+right_ht,max(left_dm,right_dm));
+ return max(1+left_ht+right_ht,max(left_dm,right_dm));//if count from node and if asked about from edge count just remove "1+" from this line
 
 }
