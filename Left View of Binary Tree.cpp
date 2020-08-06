@@ -19,7 +19,7 @@ void printleftview(Node *root,int level,int *maxlevel)
 {
     if(root==NULL)
      return;
-    if(level>*maxlevel)
+    if(level>*maxlevel) // when level becomes greater than maxlevel then it is the first node of that level & that node is in left view.
     {
      cout<<root->data<<" ";
      *maxlevel=level;
