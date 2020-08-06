@@ -35,3 +35,7 @@ void printVertical(Node *root)
     cout<<itr->second<<" ";
   }
 }
+/*
+Given a Binary Tree, find the vertical sum of the nodes that are in the same vertical line. Print all sums through different vertical lines.
+We need to check the Horizontal Distances from the root for all nodes. If two nodes have the same Horizontal Distance (HD), then they are on the same vertical line. 
+*/
