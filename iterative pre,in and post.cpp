@@ -96,7 +96,7 @@ public:
                 root = root -> left;
             } else {
                 TreeNode* node = todo.top();
-                if (node -> right && last != node -> right) {
+                if (node -> right && last != node -> right) { // to check if right subtree is visited or not
                     root = node -> right;
                 } else {
                     nodes.push_back(node -> val);
