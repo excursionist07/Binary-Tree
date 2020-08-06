@@ -44,3 +44,8 @@ void bottomView(Node *root)
   for(itr=mp.begin();itr!=mp.end();++itr)
     cout<<itr->second<<" ";
 }
+
+/*
+A node x is there in output if x is the bottommost node at its horizontal distance. Horizontal distance of left child of a node x is equal to horizontal distance of x minus 1, 
+and that of right child is horizontal distance of x plus 1.
+*/
