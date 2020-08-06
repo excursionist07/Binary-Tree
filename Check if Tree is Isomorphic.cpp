@@ -16,7 +16,7 @@ bool IsIdentical(Node *root1,Node *root2)
  return false;
 }
 
-bool isIsomorphic(Node *root1,Node *root2)
+bool isIsomorphic(Node *root1,Node *root2) // Two trees are called isomorphic if one of them can be obtained from other by a series of flips, i.e. by swapping left and right children of a number of nodes. Any number of nodes at any level can have their children swapped.
 {
  return IsSymmetric(root1,root2) || IsIdentical(root1,root2);
 }
