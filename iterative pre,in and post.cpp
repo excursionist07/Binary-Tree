@@ -57,7 +57,7 @@ void inOrder(Node* root)
 
 }
 
-void postOrder(Node* root)
+void postOrder(Node* root) // USING TWO STACKS 
 {
  if(root==NULL)
   return;
