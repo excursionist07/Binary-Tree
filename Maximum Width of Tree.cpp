@@ -1,3 +1,5 @@
+// Width of a tree is maximum of widths of all levels, means max. no. of nodes in all levels.
+
 int getMaxWidth(Node* root)
 {
   if(root==NULL)
