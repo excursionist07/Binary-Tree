@@ -3,8 +3,8 @@ Node *verticalWidthUtil(Node *root,int hd,map<int,int>&mp)
  if(root==NULL)
   return NULL;
  verticalWidthUtil(root->left,hd-1,mp);
- mp[hd]+=root->data;
  verticalWidthUtil(root->right,hd+1,mp);
+  mp[hd]+=root->data;
 }
 int verticalWidth(Node* root)
 {
