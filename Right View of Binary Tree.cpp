@@ -25,6 +25,7 @@ void  printrightview(Node *root,int level,int *maxlevel)
   cout<<root->data<<" ";
   *maxlevel=level;
  }
+ 
   printrightview(root->right,level+1,maxlevel);
   printrightview(root->left,level+1,maxlevel);
 }
