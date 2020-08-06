@@ -24,6 +24,7 @@ void printleftview(Node *root,int level,int *maxlevel)
      cout<<root->data<<" ";
      *maxlevel=level;
     }
+    // just flip below two statements then it becomes right view of BT
     printleftview(root->left,level+1,maxlevel);
     printleftview(root->right,level+1,maxlevel);
 }
