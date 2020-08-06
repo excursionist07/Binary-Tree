@@ -24,7 +24,7 @@ bool symmetric(struct Node* root1,struct Node* root2)
 
   return false;
 }
-bool isSymmetric(struct Node* root)
+bool isSymmetric(struct Node* root) // Symmetric Tree (Mirror Image of itself)
 {
  return symmetric(root,root);
 }
