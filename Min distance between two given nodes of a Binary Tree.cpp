@@ -12,7 +12,7 @@ Node* lca(Node* root,int a,int b)
  if(r) return r;
 
 }
-int dist(Node* root,int a)
+int dist(Node* root,int a) // it is necessary to find LCA b'coz whave to only go down
 {
  if(root==NULL)
   return 0;
