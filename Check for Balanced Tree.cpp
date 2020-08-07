@@ -46,3 +46,5 @@ int height(Node *root)
     return 0; 
 } 
 
+// a binary tree in which the left and right subtrees of every node differ in height by no more than 1.
+
