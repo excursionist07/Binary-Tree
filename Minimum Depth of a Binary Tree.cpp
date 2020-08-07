@@ -27,3 +27,4 @@ int minDepth(Node *node)
     return 1+minDepth(node->left);
   return 1+min(minDepth(node->left),minDepth(node->right));
 }
+// The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
