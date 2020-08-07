@@ -23,5 +23,5 @@ int dist(Node* root,int a) // it is necessary to find LCA b'coz whave to only go
 int findDist(Node* root, int a, int b)
 {
    Node* LCA=lca(root,a,b);
-   return dist(LCA,a)+dist(LCA,b);
+   return dist(LCA,a)+dist(LCA,b); // OR(dist(a,root)+dist(b,root)-2*dist(LCA,root))
 }
