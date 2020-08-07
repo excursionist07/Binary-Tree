@@ -1,22 +1,11 @@
-#include <bits/stdc++.h>
-#define mem(dp,a) memset(dp,a,sizeof(dp))
-#define pb(x) push_back(x)
-#define m_p(x,y) make_pair(x,y)
-#define rep(i,a,b) for(ll i=a;i<b;i++)
-#define repush_back(i,a,b) for(ll i=a;i>=b;i--)
-#define f(n) for(ll i=0;i<n;i++)
-#define r(n) for(ll j=0;j<n;j++)
-#define F first
-#define S second
-#define pi 3.14159265359
-#define hs ios_base::sync_with_stdio(false);cin.tie(NULL);
-using namespace std;
-typedef long long int ll;
-ll HRX=1e18;
-ll INF=1e9+7;
+Method 1 (By Storing root to n1 and root to n2 paths):
+Following is simple O(n) algorithm to find LCA of n1 and n2.
+1) Find path from root to n1 and store it in a vector or array.
+2) Find path from root to n2 and store it in another vector or array.
+3) Traverse both paths till the values in arrays are same. Return the common element just before the mismatch.
 
   
-Node* lca(Node* root,int a,int b)
+Node* lca(Node* root,int a,int b) //O(n) && O(1)
 {
  if(root==NULL)
   return NULL;
