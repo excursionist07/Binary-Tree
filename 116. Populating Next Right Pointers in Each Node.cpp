@@ -18,7 +18,7 @@ public:
 
 class Solution {
 public:
-    Node* connect(Node* root)
+    Node* connect(Node* root) // for all
     {
      if(!root)
          return NULL;
@@ -42,7 +42,7 @@ public:
      }*/
 
     /*Node *pre=root;
-    Node *cur=NULL;//O(n) && O(1)  itrrative
+    Node *cur=NULL;//O(n) && O(1)  itrrative ,if tree is perfect binary tree
    while(pre->left)// Outer loop for each level ,standing on level i we connect level (i+1)
     {
      cur=pre;
