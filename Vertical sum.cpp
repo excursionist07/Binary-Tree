@@ -15,7 +15,7 @@ vector <int> verticalSum(Node *root)
    return vv;
   map<int,int>mp;
   //doit(root,0,mp);
-  queue<pair<Node*,int>>q;
+  queue<pair<Node*,int>>q;// ITERATIVE
   int hd=0;
   q.push(make_pair(root,hd));
   while(!q.empty())
