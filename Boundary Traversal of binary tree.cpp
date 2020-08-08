@@ -55,7 +55,7 @@ vector<int> printBoundary(Node *root)
 {
  vec.clear();
  if(root==NULL)
-  return;
+  return vec;
  vec.push_back(root->data);
  PrintBoundaryLeft(root->left);
  PrintLeaf(root->left);
