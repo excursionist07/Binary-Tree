@@ -1,3 +1,5 @@
+//RECURSIVE
+
 void printleftview(Node *root,int level,int *maxlevel)// first element of each level
 {
     if(root==NULL)
@@ -17,3 +19,24 @@ void leftView(Node *root)
   printleftview(root,1,&maxlevel);
 
 }
+
+// ITERATIVE
+queue<TreeNode*>q;// since left view is first element of each row
+    q.push(root);
+    while(!q.empty())
+    {
+     int zz=q.size();
+     bool ff=1;
+     for(int i=0;i<zz;i++)
+     {
+      TreeNode* cur=q.front();
+      q.pop();
+      if(ff)
+         ans.push_back(cur->val),ff=0;
+      if(cur->left)
+          q.push(cur->left);
+      if(cur->right)
+          q.push(cur->right);
+     }
+    }
+     return ans;
