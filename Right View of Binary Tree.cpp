@@ -1,3 +1,5 @@
+//RECURSIVE
+
 class Solution {
 public:
     void doit(TreeNode* root,int level,int* maxlevel,vector<int>& ans)
@@ -23,3 +25,26 @@ public:
      
     }
 };
+
+//ITERATIVE
+
+ queue<TreeNode*>q;// since right view is last element of each row
+    q.push(root);
+    while(!q.empty())
+    {
+     int zz=q.size();
+     bool ff=1;
+     for(int i=0;i<zz;i++)
+     {
+      TreeNode* cur=q.front();
+      q.pop();
+      if(ff)
+         ans.push_back(cur->val),ff=0;
+      if(cur->right)
+          q.push(cur->right);
+      if(cur->left)
+          q.push(cur->left);
+     }
+    }
+     return ans;
+     
