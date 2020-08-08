@@ -1,16 +1,17 @@
-int convert(Node *node)
+int convert(Node* root)
 {
-  if(node==NULL)
-   return 0;
-
-  int old=node->data;
-  node->data=convert(node->left)+convert(node->right);
-  return node->data+old;
+ if(!root)
+  return 0;
+ int old=root->data;
+ root->data=convert(root->left)+convert(root->right);
+ return old+root->data;
+ 
 }
 void toSumTree(Node *node)
 {
-  if(node==NULL)
+  if(!node)
    return;
   convert(node);
-
+  
 }
+
