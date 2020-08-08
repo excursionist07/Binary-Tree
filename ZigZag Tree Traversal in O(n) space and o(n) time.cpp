@@ -52,3 +52,34 @@ public:
         
     }
 };
+
+// USING ONLY ONE QUEUE
+
+ queue<TreeNode*>q;
+     q.push(root);
+     bool ff=1;// ff=1(L-R) , ff=0(R-L)
+     while(!q.empty())
+     {
+       int zz=q.size();
+       vector<int>vv(zz);
+       for(int i=0;i<zz;i++)
+       {
+        TreeNode *cur=q.front();
+        q.pop();
+        if(ff)
+          vv[i]=cur->val;
+        else
+          vv[zz-i-1]=cur->val;
+        if(cur->left)
+            q.push(cur->left);     
+        if(cur->right)
+            q.push(cur->right);
+       }
+       ans.push_back(vv);
+       ff=!ff;
+      
+     }
+     return ans;
+        
+    }
+};
