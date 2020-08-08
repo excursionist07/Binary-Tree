@@ -1,6 +1,6 @@
-int evalTree(node* root)
+int evalTree(node* root) 
 {
-  if(root==NULL)
+  if(!root)
    return 0;
   if(!root->left && !root->right)
    return stoi(root->data);
@@ -8,10 +8,11 @@ int evalTree(node* root)
   int r=evalTree(root->right);
   if(root->data=="+")
    return l+r;
-  else if(root->data=="-")
+  if(root->data=="-")
    return l-r;
-  else if(root->data=="*")
+  if(root->data=="*")
    return l*r;
-  else
+  if(root->data=="/")
    return l/r;
+  
 }
