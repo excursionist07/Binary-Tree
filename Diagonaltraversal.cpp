@@ -24,19 +24,27 @@ void dt(Node* root,int d,map<int,vector<int>>&mp)
  dt(root->right, d,mp); // Vertical distance remains same for right child
 }
 
-void diagonalPrint(Node *root)
+vector<int> Solution::solve(TreeNode* A) 
 {
-  if(root==NULL)
-   return;
-  map<int,vector<int>>mp;
-  dt(root,0,mp);
-  for(auto xx:mp)
-  {
-   for(auto yy:xx)
+ vector<int>ans;
+ map<int,vector<int>>mp;
+ doit(A,0,mp);
+ /*for (auto it = mp.begin(); 
+         it != mp.end(); ++it) 
+    { 
+        for (auto itr = it->second.begin(); 
+             itr != it->second.end(); ++itr) 
+           ans.push_back(*itr); 
+  
+        //cout << 'n'; 
+    } */
+   for(auto xx:mp)
    {
-     cout<<yy<<" ";
+    for(auto yy:xx.second)
+    {
+     ans.push_back(yy);
+    }
    }
-   cout<<"\n";
-  }
-     
+    
+ return ans;
 }
