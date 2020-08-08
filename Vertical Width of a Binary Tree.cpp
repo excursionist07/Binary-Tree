@@ -1,16 +1,16 @@
-Node *verticalWidthUtil(Node *root,int hd,map<int,int>&mp)
+void doit(Node* root,int dd,map<int,int>&mp)
 {
- if(root==NULL)
-  return NULL;
- verticalWidthUtil(root->left,hd-1,mp);
- verticalWidthUtil(root->right,hd+1,mp);
-  mp[hd]+=root->data;
+ if(!root)
+  return;
+ doit(root->left,dd-1,mp);
+ doit(root->right,dd+1,mp);
+ mp[dd]+=root->data;
 }
 int verticalWidth(Node* root)
 {
-  if(root==NULL)
+  if(!root)
    return 0;
   map<int,int>mp;
-  verticalWidthUtil(root,0,mp);
+  doit(root,0,mp);
   return mp.size();
 }
