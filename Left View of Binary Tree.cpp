@@ -15,7 +15,7 @@ typedef long long int ll;
 ll HRX=1e18;
 ll INF=1e9+7;
 
-void printleftview(Node *root,int level,int *maxlevel)
+void printleftview(Node *root,int level,int *maxlevel)// first element of each level
 {
     if(root==NULL)
      return;
