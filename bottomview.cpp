@@ -48,4 +48,6 @@ void bottomView(Node *root)
 /*
 A node x is there in output if x is the bottommost node at its horizontal distance. Horizontal distance of left child of a node x is equal to horizontal distance of x minus 1, 
 and that of right child is horizontal distance of x plus 1.
+
+If there are multiple bottom-most nodes for a horizontal distance from root, then print the later one in level traversal.
 */
