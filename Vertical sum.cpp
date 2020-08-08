@@ -1,22 +1,25 @@
 
-Node * printVerticalUtil(Node *root,int hd,map<int,int>&mp)
+void doit(Node *root,int hd,map<int,int>&mp)
 {
- if(root==NULL)
-  return NULL;
- printVerticalUtil(root->left,hd-1,mp);
- printVerticalUtil(root->right,hd+1,mp);
+ if(!root)
+  return;
+ doit(root->left,hd-1,mp);
+ doit(root->right,hd+1,mp);
  mp[hd]+=root->data;
 
 }
 vector <int> verticalSum(Node *root) 
 {
   vector<int>vv;
+  if(!root)
+   return vv;
   map<int,int>mp;
-  printVerticalUtil(root,0,mp);
-  map<int,int>::iterator itr;
-  for(itr=mp.begin();itr!=mp.end();++itr)
-    vv.push_back(itr->second);
+  doit(root,0,mp);
+  for(auto xx:mp)
+   vv.push_back(xx.second);
   return vv;
+  
+  
  
 }
 /*
