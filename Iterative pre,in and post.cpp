@@ -38,7 +38,7 @@ void inOrder(Node* root)
 
 }
 
-void postOrder(Node* root) // USING TWO STACKS 
+void postOrder(Node* root) // USING TWO STACKS ,first do DRL
 {
  if(root==NULL)
   return;
