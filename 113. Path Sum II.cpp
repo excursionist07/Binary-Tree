@@ -1,14 +1,4 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
+// Given a binary tree and a sum, find all root-to-leaf paths where each path's sum equals the given sum
 class Solution {
 public:
     void doit(TreeNode* root,int sum,vector<int>vv,vector<vector<int>>&ans)
