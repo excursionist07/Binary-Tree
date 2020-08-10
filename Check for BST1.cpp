@@ -1,29 +1,17 @@
-#include <bits/stdc++.h>
-#define mem(dp,a) memset(dp,a,sizeof(dp))
-#define pb(x) push_back(x)
-#define m_p(x,y) make_pair(x,y)
-#define rep(i,a,b) for(ll i=a;i<b;i++)
-#define repush_back(i,a,b) for(ll i=a;i>=b;i--)
-#define f(n) for(ll i=0;i<n;i++)
-#define r(n) for(ll j=0;j<n;j++)
-#define F first
-#define S second
-#define pi 3.14159265359
-#define hs ios_base::sync_with_stdio(false);cin.tie(NULL);
-using namespace std;
-typedef long long int ll;
-ll HRX=1e18;
-ll INF=1e9+7;
-
-bool isBstUtil(Node *root,int min,int max)
-{
- if(root==NULL)
-  return 1;
- if(root->data<min || root->data>max)
-  return 0;
- return isBstUtil(root->left,min,root->data-1) && isBstUtil(root->right,root->data+1,max);
-}
-bool isBST(Node* root)
-{
- return isBstUtil(root,INT_MIN,INT_MAX);
-}
+class Solution {
+public:
+    bool doit(TreeNode* root,long long int minn,long long int maxx)
+    {
+     if(!root)
+         return 1;
+     if(root->val<=minn || root->val>=maxx)
+         return 0;
+     return doit(root->left,minn,root->val) && doit(root->right,root->val,maxx);
+    }
+    bool isValidBST(TreeNode* root) 
+    {
+     if(!root)
+         return true;
+     return doit(root,-1e18,1e18);
+    }
+};
