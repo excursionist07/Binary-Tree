@@ -16,26 +16,10 @@ void printKdistance(Node *root, int k)
 
 // from any target Node
 
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
+
 class Solution {
 public:
-   /* int distance(TreeNode* root,TreeNode* target)
-    {
-     if(!root)
-         return 0;
-     else if(root->val==target->val)
-         return 0;
-     else
-         return 1+min(distance(root->left),distance(root->right));
-    }*/
+   
     vector<int> distanceK(TreeNode* root, TreeNode* target, int K) 
     {
      vector<int>vv;
