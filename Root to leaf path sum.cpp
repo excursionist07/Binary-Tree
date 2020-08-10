@@ -2,7 +2,7 @@ class Solution {
 public:
     bool hasPathSum(TreeNode* root, int sum)
     {
-     if(!root)
+     if(!root) //NO ROOT,GOW CAN ROOT TO LEAF SUM EQUALS sum
          return 0;
      else
      {
