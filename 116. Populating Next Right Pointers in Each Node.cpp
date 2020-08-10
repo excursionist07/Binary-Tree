@@ -1,20 +1,4 @@
-/*
-// Definition for a Node.
-class Node {
-public:
-    int val;
-    Node* left;
-    Node* right;
-    Node* next;
 
-    Node() : val(0), left(NULL), right(NULL), next(NULL) {}
-
-    Node(int _val) : val(_val), left(NULL), right(NULL), next(NULL) {}
-
-    Node(int _val, Node* _left, Node* _right, Node* _next)
-        : val(_val), left(_left), right(_right), next(_next) {}
-};
-*/
 
 class Solution {
 public:
@@ -40,7 +24,9 @@ public:
       else if(!q.empty())
           q.push(NULL);
      }*/
-
+    
+        
+    // Initially, all next pointers are set to NULL.
     /*Node *pre=root;
     Node *cur=NULL;//O(n) && O(1)  itrrative ,if tree is perfect binary tree
    while(pre->left)// Outer loop for each level ,standing on level i we connect level (i+1)
