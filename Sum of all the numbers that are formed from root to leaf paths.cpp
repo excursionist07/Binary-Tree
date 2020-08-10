@@ -1,31 +1,16 @@
-#include <bits/stdc++.h>
-#define mem(dp,a) memset(dp,a,sizeof(dp))
-#define pb(x) push_back(x)
-#define m_p(x,y) make_pair(x,y)
-#define rep(i,a,b) for(ll i=a;i<b;i++)
-#define repush_back(i,a,b) for(ll i=a;i>=b;i--)
-#define f(n) for(ll i=0;i<n;i++)
-#define r(n) for(ll j=0;j<n;j++)
-#define F first
-#define S second
-#define pi 3.14159265359
-#define hs ios_base::sync_with_stdio(false);cin.tie(NULL);
-using namespace std;
-typedef long long int ll;
-ll HRX=1e18;
-ll INF=1e9+7;
-
-int pathsum(Node *root,int val)
-{
- if(root==NULL)
-  return 0;
- val=(val*10+root->data);
- if(root->left==NULL && root->right==NULL)
-  return val;
- return pathsum(root->left,val)+pathsum(root->right,val);
-}
-long long treePathsSum(Node *root)
-{
-   return pathsum(root,0);
-
-}
+class Solution {
+public:
+    int doit(TreeNode* root,int val)
+    {
+     if(!root)
+         return 0;
+     val=val*10+root->val;
+     if(!root->left && !root->right)
+         return val;
+     return doit(root->left,val)+doit(root->right,val);
+    }
+    int sumNumbers(TreeNode* root) 
+    {
+     return doit(root,0);    
+    }
+};
