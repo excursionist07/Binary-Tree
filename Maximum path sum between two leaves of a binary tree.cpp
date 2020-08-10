@@ -1,23 +1,22 @@
-
-
-int maxPathUtil(Node *root,int &res)
+int doit(Node* root,int &res)
 {
- if(root==NULL)
+ if(!root)
   return 0;
- if(root->left==NULL && root->right==NULL)
+ if(!root->left && !root->right)
   return root->data;
- int ls=maxPathUtil(root->left,res);
- int rs=maxPathUtil(root->right,res);
+ int L=doit(root->left,res);
+ int R=doit(root->right,res);
  if(root->left && root->right)
  {
-  res=max(res,ls+rs+root->data);
-  return max(ls,rs)+root->data;
+  res=max(res,L+R+root->data);
+  return max(L,R)+root->data;
  }
- return (root->left==NULL) ? rs+root->data : ls+root->data;
+ return (!root->left) ? R+root->data :L+root->data; // If any of the two children is empty, return root sum for root being on one side
+      
 }
-int maxPathSum(struct Node *root)
-{
- int res=INT_MIN;
- maxPathUtil(root,res);
- return res;
+int maxPathSum(Node* root)
+{ 
+  int res=INT_MIN;
+  doit(root,res);
+  return res;
 }
