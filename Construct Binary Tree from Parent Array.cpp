@@ -1,20 +1,4 @@
-#include <bits/stdc++.h>
-#define mem(dp,a) memset(dp,a,sizeof(dp))
-#define pb(x) push_back(x)
-#define m_p(x,y) make_pair(x,y)
-#define rep(i,a,b) for(ll i=a;i<b;i++)
-#define repush_back(i,a,b) for(ll i=a;i>=b;i--)
-#define f(n) for(ll i=0;i<n;i++)
-#define r(n) for(ll j=0;j<n;j++)
-#define F first
-#define S second
-#define pi 3.14159265359
-#define hs ios_base::sync_with_stdio(false);cin.tie(NULL);
-using namespace std;
-typedef long long int ll;
-ll HRX=1e18;
-ll INF=1e9+7;
-
+//RECURSIVE
 
 void CreateNode(int parent[],int i,Node *created[],Node **root)
 {
@@ -46,6 +30,40 @@ Node *createTree(int parent[], int n)
   for(int i=0;i<n;i++)
   {
    CreateNode(parent,i,created,&root);
+  }
+  return root;
+}
+
+// ITERATIVE
+
+
+Node *createTree(int parent[], int n)
+{
+  map<int,vector<int>>mp;
+  for(int i=0;i<n;i++)
+   mp[parent[i]].push_back(i);
+  if(mp[-1].size()==0)// no root present
+   return NULL;
+  queue<Node*>q;
+  Node *root=NULL;
+  q.push(new Node(mp[-1][0]));
+  while(!q.empty())
+  {
+    Node* temp=q.front();
+    q.pop();
+    if(!root)
+     root=temp;
+    int zz=temp->data;
+    if(mp[zz].size()>0)
+    {
+     temp->left=new Node(mp[zz][0]);
+     q.push(temp->left);
+     if(mp[zz].size()>1)
+     {
+      temp->right=new Node(mp[zz][1]);
+      q.push(temp->right);
+     }
+    }
   }
   return root;
 }
