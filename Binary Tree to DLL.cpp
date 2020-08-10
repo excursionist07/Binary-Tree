@@ -1,27 +1,29 @@
-void callit(Node *root,Node **head_ref)
+void DLL(Node* root,Node* &head)
 {
- if(*head_ref==NULL)
-  *head_ref=root;
-  else
-  {
-    root->right=*head_ref;
-    (*head_ref)->left=root;
-    *head_ref=root;
-  }
+ if(!head)
+  head=root;
+ else
+ {
+  root->right=head;
+  head->left=root;
+  head=root;
+ }
+}
+void doit(Node* root,Node* &head)
+{
+ if(!root)
+  return;
+ doit(root->right,head);
+ DLL(root,head);
+ doit(root->left,head);
 }
 
-void reverseIn(Node *root,Node **head_ref)
+Node * bToDLL(Node *root)
 {
- if(root==NULL)
-  return;
- reverseIn(root->right,head_ref);
- callit(root,head_ref);
- reverseIn(root->left,head_ref);
-}
-void bToDLL(Node *root, Node **head_ref)
-{
-  if(root==NULL)
-   return;
-  reverseIn(root,head_ref);
+ if(!root)
+  return NULL;
+ Node* head=NULL;
+ doit(root,head);
+ return head;
 }
 
