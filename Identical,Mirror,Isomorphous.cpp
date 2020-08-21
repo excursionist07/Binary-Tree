@@ -113,3 +113,79 @@ int areMirror(Node* a, Node* b)
   makemirror(a);
  return IsIdentical(a,b);
 }
+
+// Check for Balanced Tree
+
+class Solution {
+public:
+    int height(TreeNode* root)
+    {
+     if(!root)
+         return -1;
+     else
+     {
+      int LH=height(root->left);
+      int RH=height(root->right);
+      return 1+max(LH,RH);
+     }
+    }
+    bool isBalanced(TreeNode* root)
+    {
+      if(!root)
+          return 1;
+      int L=height(root->left);
+      int R=height(root->right);
+      
+      if(abs(L-R)<=1 && isBalanced(root->left) && isBalanced(root->right))
+          return 1;
+     return 0;
+    }
+};
+
+// Tilt of Binary Tree
+
+/*
+The tilt of a tree node is defined as the absolute difference between the sum of all left subtree node values and the sum of all right subtree node values. Null node has tilt 0.
+The tilt of the whole tree is defined as the sum of all nodes' tilt.----VERY IMPORTANT,it should not be misunderstood just to find abs(LS-RS) ONLY.
+*/
+
+class Solution {
+public:
+    int sum(TreeNode* root)
+    {
+     if(!root)
+         return 0;
+     return sum(root->left)+root->val+sum(root->right);
+    }
+    int findTilt(TreeNode* root) 
+    {
+     if(!root)
+         return 0;
+     int Lsum=sum(root->left);
+     int Rsum=sum(root->right);
+     
+     return abs(Lsum-Rsum)+findTilt(root->left)+findTilt(root->right);
+     
+    }
+};
+
+//  Expression Tree
+
+int evalTree(node* root) 
+{
+  if(!root)
+   return 0;
+  if(!root->left && !root->right)
+   return stoi(root->data);
+  int l=evalTree(root->left);
+  int r=evalTree(root->right);
+  if(root->data=="+")
+   return l+r;
+  if(root->data=="-")
+   return l-r;
+  if(root->data=="*")
+   return l*r;
+  if(root->data=="/")
+   return l/r;
+  
+}
