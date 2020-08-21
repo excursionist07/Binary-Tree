@@ -245,3 +245,80 @@ void convert(Node *head, TreeNode *&root)
  }
  
 }
+
+// Construct BST from Preorder
+
+Node* level(Node* root,int x)
+{
+ if(!root)
+  root=new Node(x);
+ else if(x<root->data)
+  root->left=level(root->left,x);
+ else
+  root->right=level(root->right,x);
+ return root;
+}
+Node* constructBst(int arr[], int n)
+{
+ Node* root=NULL;
+ for(int i=0;i<n;i++)
+  root=level(root,arr[i]);
+ return root;
+	
+}
+
+// Construct BST from Preorder
+
+class Solution {
+public:
+    TreeNode* build(TreeNode* root,int x)
+    {
+     if(root==NULL)
+         root=new TreeNode(x);
+     else if(x<root->val)
+         root->left=build(root->left,x);
+     else
+         root->right=build(root->right,x);
+     return root;
+    }
+    TreeNode* bstFromPreorder(vector<int>& preorder)
+    {
+     TreeNode* root=NULL;
+     int n=preorder.size();
+     for(int i=0;i<n;i++)
+         root=build(root,preorder[i]);
+     return root;
+    }
+};
+
+// Binary Tree to DLL
+
+void DLL(Node* root,Node* &head)
+{
+ if(!head)
+  head=root;
+ else
+ {
+  root->right=head;
+  head->left=root;
+  head=root;
+ }
+}
+void doit(Node* root,Node* &head)
+{
+ if(!root)
+  return;
+ doit(root->right,head);
+ DLL(root,head);
+ doit(root->left,head);
+}
+
+Node * bToDLL(Node *root)
+{
+ if(!root)
+  return NULL;
+ Node* head=NULL;
+ doit(root,head);
+ return head;
+}
+
