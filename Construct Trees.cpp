@@ -33,7 +33,7 @@ public:
     }
 };
 
-// Construct Tree from inorde and postorder
+// Construct Tree from inorder and postorder
 
 class Solution {
 public:
