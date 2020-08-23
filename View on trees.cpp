@@ -409,5 +409,23 @@ void printSpiral(Node *root)
   }
 }
 
+//  Right Sibling in Binary Tree
 
+Node* findRightSibling(Node* node)
+{
+   if(node==NULL || node->parent==NULL)
+    return NULL;
+   if(node==node->parent->left && node->parent->right)
+    return node->parent->right;
+   Node *temp=findRightSibling(node->parent);
+   if(temp && (temp->left || temp->right))
+   {
+     if(temp->left)
+      return temp->left;
+     else
+      return temp->right;
+   }
+   else if(temp)
+    return findRightSibling(node->parent);
+}
 
