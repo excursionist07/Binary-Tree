@@ -87,9 +87,10 @@ void doit(Node* root,int dd,map<int,int>&mp)
 {
  if(!root)
   return;
+ mp[dd]+=root->data;
  doit(root->left,dd-1,mp);
  doit(root->right,dd+1,mp);
- mp[dd]+=root->data;
+ 
 }
 int verticalWidth(Node* root)
 {
