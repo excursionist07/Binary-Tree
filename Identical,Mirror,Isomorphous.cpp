@@ -101,7 +101,7 @@ int areMirror(Node* a, Node* b)
 }
 
 
-// Check for Balanced Tree
+// Check for Balanced Tree--->  A tree is height balanced if difference between heights of left and right subtrees is not more than one for all nodes of tree. 
 
 class Solution {
 public:
