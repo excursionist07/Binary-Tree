@@ -41,9 +41,10 @@ vector<int> verticalOrder(Node *root)
 {
  if(!root)
   return;
+ mp[hd]+=root->data;
  doit(root->left,hd-1,mp);
  doit(root->right,hd+1,mp);
- mp[hd]+=root->data;
+ 
 }*/
 vector <int> verticalSum(Node *root) 
 {
@@ -51,7 +52,7 @@ vector <int> verticalSum(Node *root)
   if(!root)
    return vv;
   map<int,int>mp;
-  //doit(root,0,mp);
+  //doit(root,0,mp); // RECURSIVE
   queue<pair<Node*,int>>q;// ITERATIVE
   int hd=0;
   q.push(make_pair(root,hd));
@@ -61,7 +62,7 @@ vector <int> verticalSum(Node *root)
     q.pop();
     Node* cur=temp.first;
     hd=temp.second;
-   mp[hd]+=cur->data;
+    mp[hd]+=cur->data;
     if(cur->left)
       q.push(make_pair(cur->left,hd-1));
     if(cur->right)
