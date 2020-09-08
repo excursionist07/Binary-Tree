@@ -170,7 +170,7 @@ public:
 
 // Diagonal Traversal
 
-void dt(Node* root,int d,map<int,vector<int>>&mp)
+void doit(Node* root,int d,map<int,vector<int>>&mp)
 {
  if(!root)
    return;
