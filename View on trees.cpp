@@ -238,13 +238,13 @@ void PrintBoundaryRight(Node *root)
   return;
  if(root->right)
  {
-   vec.push_back(root->data);
    PrintBoundaryRight(root->right);
+   vec.push_back(root->data);
  }
  else if(root->left)
  {
-  vec.push_back(root->data);
   PrintBoundaryRight(root->left);
+   vec.push_back(root->data);
  }
 
 }
