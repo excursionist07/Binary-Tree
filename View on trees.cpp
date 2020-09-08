@@ -253,9 +253,9 @@ void PrintLeaf(Node *root)
 {
  if(root==NULL)
   return;
- PrintLeaf(root->left);
  if(!root->left && !root->right)
   vec.push_back(root->data);
+ PrintLeaf(root->left);
  PrintLeaf(root->right);
 }
 
