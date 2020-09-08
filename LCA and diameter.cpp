@@ -84,7 +84,7 @@ int kthAncestor(Node *root, int k, int node)
 
 // Inorder Successor in BST
 
-//In Binary Tree, Inorder successor of a node is the next node in Inorder traversal of the Binary Tree. Inorder Successor is NULL for the last node in Inorder traversal.
+//In BST, Inorder successor of a node is the next node in Inorder traversal of the Binary Tree. Inorder Successor is NULL for the last node in Inorder traversal.
  
 Node *minValue(Node *root)
 {
