@@ -246,7 +246,7 @@ void convert(Node *head, TreeNode *&root)
  
 }
 
-// Construct BST from Preorder
+// Construct BST from levelorder
 
 Node* level(Node* root,int x)
 {
