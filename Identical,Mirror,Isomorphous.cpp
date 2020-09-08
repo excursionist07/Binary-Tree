@@ -19,7 +19,7 @@ public:
     }
 };
 
-// Symmetric Tree
+// Symmetric Tree ---> a tree which is mirror image of itself 
 
 class Solution {
 public:
