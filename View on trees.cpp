@@ -279,10 +279,10 @@ void diagonalSumUtil(Node *root,int dd,map<int,int>&mp)
 {
  if(root==NULL)
     return;
-
+ mp[dd]+=root->data;
  diagonalSumUtil(root->left,dd+1,mp);
  diagonalSumUtil(root->right,dd,mp);
-  mp[dd]+=root->data;
+  
 }
 
 
