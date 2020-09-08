@@ -85,34 +85,21 @@ bool isIsomorphic(Node *root1,Node *root2) // Two trees are called isomorphic if
 
 // Check if two trees are mirror or not
 
-Node* makemirror(Node* root)
-{
- if(!root)
-  return NULL;
- if(root->left)
-  makemirror(root->left);
- if(root->right)
-  makemirror(root->right);
- Node* temp=root->left;
- root->left=root->right;
- root->right=temp;
- return root;
-}
-bool IsIdentical(Node* a,Node* b)
+bool doit(Node* a,Node* b)
 {
  if(!a && !b)
   return true;
  if(a && b && a->data==b->data)
-  return IsIdentical(a->left,b->left) && IsIdentical(a->right,b->right);
+  return doit(a->left,b->right) && doit(a->right,b->left);
  return false;
 }
 int areMirror(Node* a, Node* b) 
 {
   if(!a && !b)
-   return 1;
-  makemirror(a);
- return IsIdentical(a,b);
+   return true;
+  return doit(a,b);
 }
+
 
 // Check for Balanced Tree
 
