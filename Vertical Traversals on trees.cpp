@@ -1,4 +1,4 @@
-// Vertical Traversal of Binary Tree
+// Vertical Traversal of Binary Tree-->based on horizontal distance -i.e(left--> -1 & right-->1)
 
 vector<int> verticalOrder(Node *root)
 {
