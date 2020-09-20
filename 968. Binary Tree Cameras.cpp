@@ -43,3 +43,5 @@ public:
      return ans+((zz==0) ? 1 : 0);
     }
 };
+
+// O(N)
