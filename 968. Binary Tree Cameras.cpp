@@ -14,6 +14,8 @@ Apply a recusion function dfs.
 Return 0 if it's a leaf.
 Return 1 if it's a parent of a leaf, with a camera on this node.
 Return -1 if it's coverd, without a camera on this node.
+
+Time Complexity: O(N), where NN is the number of nodes in the tree.
 */
 
 class Solution {
@@ -44,4 +46,37 @@ public:
     }
 };
 
-// O(N)
+
+
+// 979. Distribute Coins in Binary Tree
+
+/*
+At each node, some candies will come from the left and goes to the right or comes from the right and goes to left.
+https://leetcode.com/problems/distribute-coins-in-binary-tree/discuss/221939/C%2B%2B-with-picture-post-order-traversal---> for better understanding
+Time Complexity: O(N), where NN is the number of nodes in the tree.
+*/
+
+class Solution {
+public:
+    int dfs(TreeNode* root,int& ans)
+    {
+     if(!root)
+         return 0;
+     int left=dfs(root->left,ans);
+     int right=dfs(root->right,ans);
+     ans+=(abs(left)+abs(right));
+     return root->val+left+right-1; // -1 for keeping one coin for itself
+    }
+    int distributeCoins(TreeNode* root) 
+    {
+     if(!root)
+         return 0;
+     if(root && !root->left && !root->right)
+         return 0;
+     int ans=0;
+     dfs(root,ans);
+     return ans;
+     
+    }
+};
+
