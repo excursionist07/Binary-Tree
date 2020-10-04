@@ -34,7 +34,7 @@ public:
       ans++;
       return 1;
      }
-     return (left==1 || right==1) ? -1 : 0;
+     return (left==1 || right==1) ? -1 : 0; // if either of them is 1 ,so it covers the upper node so return -1
     }
     int minCameraCover(TreeNode* root)
     {
