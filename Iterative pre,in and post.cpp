@@ -2,7 +2,7 @@ void preorder(Node* root)
 {
   stack<Node*>stk;
   stk.push(root);
-  while(!stk.empty())
+  while(!stk.empty()) // --> we do DRL for it
   {
     Node *cur=stk.top();
     stk.pop();
