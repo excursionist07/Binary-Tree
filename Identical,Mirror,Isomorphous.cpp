@@ -101,7 +101,7 @@ int areMirror(Node* a, Node* b)
 }
 
 
-// Check for Balanced Tree--->  A tree is height balanced if difference between heights of left and right subtrees is not more than one for all nodes of tree. 
+// 110. Check for Balanced Tree--->  A tree is height balanced if difference between heights of left and right subtrees is not more than one for all nodes of tree. 
 
 class Solution {
 public:
@@ -129,7 +129,7 @@ public:
     }
 };
 
-// Tilt of Binary Tree
+// 563.Tilt of Binary Tree
 
 /*
 The tilt of a tree node is defined as the absolute difference between the sum of all left subtree node values and the sum of all right subtree node values. Null node has tilt 0.
@@ -165,7 +165,7 @@ int evalTree(node* root)
   if(!root->left && !root->right)
    return stoi(root->data);
   int l=evalTree(root->left);
-  int r=evalTree(root->right);
+  in r=evalTree(root->right);
   if(root->data=="+")
    return l+r;
   if(root->data=="-")
