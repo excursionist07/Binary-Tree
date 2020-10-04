@@ -165,7 +165,7 @@ int evalTree(node* root)
   if(!root->left && !root->right)
    return stoi(root->data);
   int l=evalTree(root->left);
-  in r=evalTree(root->right);
+  int r=evalTree(root->right);
   if(root->data=="+")
    return l+r;
   if(root->data=="-")
