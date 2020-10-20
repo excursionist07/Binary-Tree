@@ -129,6 +129,49 @@ public:
     }
 };
 
+// 958. Check Completeness of a Binary Tree
+/* -->In a complete binary tree every level, except possibly the last, is completely filled, and all nodes in the last level are as far left as possible.
+It can have between 1 and 2h nodes inclusive at the last level h.*/
+
+/*
+Use BFS to do a level order traversal,
+add childrens to the bfs queue,
+until we met the first empty node.
+
+For a complete binary tree,
+there should not be any node after we met an empty one.
+*/
+
+class Solution {
+public:
+   
+    bool isCompleteTree(TreeNode* root) 
+    {
+     if(!root)
+      return true;
+     queue<TreeNode*>q;
+     q.push(root);
+     bool ff=true;
+     while(!q.empty())
+     {
+      TreeNode* cur=q.front();
+      q.pop();
+      if(cur==NULL)
+          ff=false;
+      else
+      {
+       if(ff==false)
+           return false;
+       q.push(cur->left);
+       q.push(cur->right);
+      }
+         
+     }
+     return true;
+    }
+};
+
+
 // 563.Tilt of Binary Tree
 
 /*
