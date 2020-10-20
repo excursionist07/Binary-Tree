@@ -1,6 +1,8 @@
+// o(n^2)
+
 class Solution {
 public:
-    void dfs(TreeNode* root,vector<int>vv,vector<vector<int>>&ans) // O(n^2)
+    void dfs(TreeNode* root,vector<int>vv,vector<vector<int>>&ans) // --> print all paths from root to leaves
     {
      if(!root)
          return;
