@@ -273,3 +273,26 @@ public:
      return doit(root1,root2);
     }
 };
+
+// 2nd method--> either you flip at particular node or not
+// Time Complexity: O(min(N1, N2)) where N1 & N2 are the lengths of root1 and root2.
+  
+
+
+class Solution {
+public:
+    bool doit(TreeNode* p1,TreeNode* p2)
+    {
+     if(!p1 && !p2)
+         return true;
+     if(p1 && p2 && p1->val==p2->val)
+        return (doit(p1->left,p2->left) && doit(p1->right,p2->right)) || (doit(p1->left,p2->right) && doit(p1->right,p2->left));
+     return false;
+    }
+    bool flipEquiv(TreeNode* root1, TreeNode* root2) 
+    {
+     if(!root1 && !root2)
+         return true;
+     return doit(root1,root2);
+    }
+};
