@@ -101,6 +101,8 @@ int areMirror(Node* a, Node* b)
 }
 
 
+
+
 // 110. Check for Balanced Tree--->  A tree is height balanced if difference between heights of left and right subtrees is not more than one for all nodes of tree. 
 
 class Solution {
@@ -219,3 +221,55 @@ int evalTree(node* root)
    return l/r;
   
 }
+
+// 951. Flip Equivalent Binary Trees
+
+//--> Brute force--only checking whether child of a particular node are same or not in any order.
+class Solution {
+public:
+    bool doit(TreeNode* p1,TreeNode* p2)
+    {
+     vector<int>adj1[101],adj2[101];
+     queue<TreeNode*>q1;
+     q1.push(p1);
+     while(!q1.empty())
+     {
+      TreeNode* cur=q1.front();
+      q1.pop();
+      if(cur->left)
+          q1.push(cur->left),adj1[cur->val].push_back(cur->left->val);
+      if(cur->right)
+           q1.push(cur->right),adj1[cur->val].push_back(cur->right->val);
+     }
+        
+     queue<TreeNode*>q2;
+     q2.push(p2);
+     while(!q2.empty())
+     {
+      TreeNode* cur=q2.front();
+      q2.pop();
+      if(cur->left)
+          q2.push(cur->left),adj2[cur->val].push_back(cur->left->val);
+      if(cur->right)
+           q2.push(cur->right),adj2[cur->val].push_back(cur->right->val);
+     }
+     for(int i=0;i<101;i++)
+     {
+      sort(adj1[i].begin(),adj1[i].end());
+      sort(adj2[i].begin(),adj2[i].end());
+      if(adj1[i]!=adj2[i])
+           return false;
+     }
+     return true;
+    
+    }
+    bool flipEquiv(TreeNode* root1, TreeNode* root2) 
+    {
+     if(!root1 && !root2)
+         return true;
+     if((!root1 && root2) || (root1 && !root2))
+         return false;
+         
+     return doit(root1,root2);
+    }
+};
