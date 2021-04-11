@@ -75,14 +75,14 @@ If there are multiple bottom-most nodes for a horizontal distance from root, the
 
 //RECURSIVE
 
-void printleftview(Node *root,int level,int *maxlevel)// first element of each level
+void printleftview(Node *root,int level,int& maxlevel)// first element of each level
 {
     if(root==NULL)
      return;
-    if(level>*maxlevel) // when level becomes greater than maxlevel then it is the first node of that level & that node is in left view.
+    if(level>maxlevel) // when level becomes greater than maxlevel then it is the first node of that level & that node is in left view.
     {
      cout<<root->data<<" ";
-     *maxlevel=level;
+     maxlevel=level;
     }
     // just flip below two statements then it becomes right view of BT
     printleftview(root->left,level+1,maxlevel);
@@ -91,7 +91,7 @@ void printleftview(Node *root,int level,int *maxlevel)// first element of each l
 void leftView(Node *root)
 {
   int maxlevel=0;
-  printleftview(root,1,&maxlevel);
+  printleftview(root,1,maxlevel);
 
 }
 
@@ -122,14 +122,14 @@ queue<TreeNode*>q;// since left view is first element of each row
 
 class Solution {
 public:
-    void doit(TreeNode* root,int level,int* maxlevel,vector<int>& ans)
+    void doit(TreeNode* root,int level,int& maxlevel,vector<int>& ans)
     {
      if(!root)
          return;
-     if(level>*maxlevel)
+     if(level>maxlevel)
      {
       ans.push_back(root->val);
-      *maxlevel=level;
+      maxlevel=level;
      }
      doit(root->right,level+1,maxlevel,ans);
      doit(root->left,level+1,maxlevel,ans);
@@ -140,7 +140,7 @@ public:
      if(!root)  
          return ans;
      int maxlevel=0;
-     doit(root,1,&maxlevel,ans);
+     doit(root,1,maxlevel,ans);
      return ans;
      
     }
