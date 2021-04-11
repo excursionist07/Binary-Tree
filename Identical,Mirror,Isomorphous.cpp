@@ -222,7 +222,7 @@ int evalTree(node* root)
   
 }
 
-// 951. Flip Equivalent Binary Trees
+// 951. Flip Equivalent Binary Trees  (same as Isomorphous Tree)
 
 //--> Brute force--only checking whether child of a particular node are same or not in any order.
 class Solution {
