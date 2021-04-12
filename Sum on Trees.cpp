@@ -165,18 +165,26 @@ void toSumTree(Node *node)
 
 class Solution {
 public:
-    int doit(TreeNode* root,int val)
+    void doit(TreeNode* root,int sum,int& total)
     {
      if(!root)
-         return 0;
-     val=val*10+root->val;
+         return;
+     sum=sum*10+root->val;
      if(!root->left && !root->right)
-         return val;
-     return doit(root->left,val)+doit(root->right,val);
+     {
+      total+=sum;
+      return;
+     }
+     doit(root->left,sum,total);
+     doit(root->right,sum,total);
     }
     int sumNumbers(TreeNode* root) 
     {
-     return doit(root,0);    
+     if(!root)
+          return 0;
+     int total=0;
+     doit(root,0,total);
+     return total;
     }
 };
 
