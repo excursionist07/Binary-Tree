@@ -31,23 +31,24 @@ public:
 
 class Solution {
 public:
-    void doit(TreeNode* root,int sum,vector<int>vv,vector<vector<int>>&ans)
+    void doit(TreeNode* root,int sum,vector<int>vv,vector<vector<int>>& ans)
     {
      if(!root)
          return;
      vv.push_back(root->val);
      if(!root->left && !root->right && root->val==sum)
-         ans.push_back(vv);
+     {
+      ans.push_back(vv);
+      return;
+     }
      doit(root->left,sum-root->val,vv,ans);
      doit(root->right,sum-root->val,vv,ans);
     }
-    vector<vector<int>> pathSum(TreeNode* root, int sum)
+    vector<vector<int>> pathSum(TreeNode* root, int targetSum) 
     {
-     vector<int>vv;
      vector<vector<int>>ans;
-     if(!root)
-         return ans;
-     doit(root,sum,vv,ans);
+     vector<int>vv;
+     doit(root,targetSum,vv,ans);
      return ans;
     }
 };
