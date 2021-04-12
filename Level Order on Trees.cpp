@@ -171,3 +171,53 @@ int getLevelDiff(Node *root)
   
 }
 
+// 116. Populating Next Right Pointers in Each Node (in perfect binary tree)
+
+class Solution {
+public:
+    Node* connect(Node* root) 
+    {
+     if(!root)
+         return NULL;
+     if(root->left)
+         root->left->next=root->right;
+     if(root->right && root->next)
+         root->right->next=root->next->left;
+     connect(root->left);
+     connect(root->right);
+     return root;
+     
+    }
+};
+
+// 117. Populating Next Right Pointers in Each Node II (Any Tree)
+
+class Solution {
+public:
+    Node* connect(Node* root) 
+    {
+     if(!root)
+         return NULL;
+     queue<Node*>q;
+     q.push(root);
+     q.push(NULL);
+     while(!q.empty())
+     {
+      Node* cur=q.front();
+      q.pop();
+      if(cur)
+      {
+        cur->next=q.front();
+        if(cur->left)
+            q.push(cur->left);
+        if(cur->right)
+            q.push(cur->right);
+      }
+      else if(!q.empty()) // till queue is not empty and cur==NULL, then we push NULL again for the rightmost node in each level
+          q.push(NULL);
+     }
+     return root;
+     
+    }
+};
+
