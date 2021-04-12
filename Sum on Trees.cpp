@@ -92,10 +92,10 @@ public:
     if(!root)return 0;
     int l=maxpath(root->left,res);
     int r=maxpath(root->right,res);
-    int xx=max(max(l,r)+root->val,root->val);// max(l,r)
+    int xx=max(max(l,r)+root->val,root->val);// max(l,r) ,, we return xx from below b'coz this xx will contain a path not yy always (b'coz yy takes l+r+root->val--> so it is already a path,we can't returnr it's value upwards.)  
     int yy=max(xx,l+r+root->val);// l+r
     res=max(res,yy);
-    return xx;
+    return xx; // 
    }
     
     int maxPathSum(TreeNode* root)
