@@ -3,23 +3,25 @@
 // Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
 class Solution {
 public:
-    bool hasPathSum(TreeNode* root, int sum)
+    void doit(TreeNode* root,int sum,int& cnt)
     {
-     if(!root) //NO ROOT,GOW CAN ROOT TO LEAF SUM EQUALS sum
-         return 0;
-     else
+     if(!root)
+         return;
+     if(!root->left && !root->right && root->val==sum)
      {
-      bool ans=0;
-      if(root->val==sum && !root->left && !root->right)
-          return 1;
-      sum-=root->val;
-      if(root->left)
-          ans=ans || hasPathSum(root->left,sum);
-      if(root->right)
-          ans=ans || hasPathSum(root->right,sum);
-      return ans;
-         
+      cnt++;
+      return;
      }
+     doit(root->left,sum-root->val,cnt);
+     doit(root->right,sum-root->val,cnt);
+        
+    }
+    bool hasPathSum(TreeNode* root, int targetSum) 
+    {
+    
+     int cnt=0;
+     doit(root,targetSum,cnt);
+     return (cnt>=1);
     }
 };
 
