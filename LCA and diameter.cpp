@@ -150,6 +150,48 @@ Node * inOrderPredecessor(Node *root, Node *x)
  return pred;
 }
 
+// pred and succ of a given key (gfg)
+
+void FindPre(Node* root,Node*& pre,int key)
+{
+ if(!root)
+  return;
+ while(root)
+ {
+  if(root->key>=key)
+   root=root->left;
+  else if(root->key<key)
+  {
+    pre=root;
+    root=root->right;
+  }
+ }
+}
+void FindSuc(Node* root,Node*& suc,int key)
+{
+  if(!root)
+   return;
+  while(root)
+  {
+    if(root->key>key)
+    {
+     suc=root;
+     root=root->left;
+    }
+    else if(root->key<=key)
+     root=root->right;
+  }
+}
+void findPreSuc(Node* root, Node*& pre, Node*& suc, int key)
+{
+ pre=NULL,suc=NULL;
+ if(!root)
+  return;
+ FindPre(root,pre,key);
+ FindSuc(root,suc,key);
+
+
+}
 
 // Diameter of tree
 
