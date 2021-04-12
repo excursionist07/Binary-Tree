@@ -68,9 +68,9 @@ public:
      if(!root)
          return;
      xx=xx^(1<<root->val); // if a particular number occurence is even times then it will be nullified 
-     int cnt=__builtin_popcount(xx);// count number of set bits in cnt
      if(!root->left && !root->right)
      {
+      int cnt=__builtin_popcount(xx);// count number of set bits in cnt
       if(cnt<=1) // cnt==0--> for even sized palindrome and cnt==1 for odd sized palaindrome,for a odd sized palindrome only one number occurence should be odd and for even all number occurence should be even
           ans++;
       return;
