@@ -102,5 +102,40 @@ int verticalWidth(Node* root)
 }
 
 
+/* 662. Maximum Width of Binary Tree (The width of one level is defined as the length between the end-nodes (the leftmost and right most non-null nodes in the level,
+where the null nodes between the end-nodes are also counted into the length calculation. -->in this question */
+
+
+class Solution {
+public:
+    int widthOfBinaryTree(TreeNode* root) 
+    {
+     if(!root)
+         return 0;
+     queue<pair<TreeNode*,unsigned long long int>>q;
+     q.push({root,0});
+     int ans=0;
+     while(!q.empty())
+     {
+      int zz=q.size();
+      unsigned long long l=q.front().second,r=0;// b'coz first elelment in each level will be minimum
+      for(int i=0;i<zz;i++)
+      {
+       TreeNode* cur=q.front().first;
+       r=q.front().second;
+       q.pop();
+       if(cur->left)
+           q.push({cur->left,2*r+1});
+       if(cur->right)
+           q.push({cur->right,2*r+2});
+      }
+      ans=max(ans,(int)(r-l+1));
+     }
+     return ans;
+     
+    }
+};
+
+
 
 
