@@ -175,6 +175,8 @@ public:
 
 class Solution {
 public:
+    // -->RECURSIVE
+  
     int doit(Node* root)
     {
      if(!root)
@@ -185,11 +187,10 @@ public:
       for(auto xx:root->children)
           depth=max(depth,doit(xx));
       return (1+depth);
-          
-          
      }
     }
-    
+    // --> ITERATIVE
+  
     // int doit1(Node* root)
     // {
     //  queue<Node*>q;
