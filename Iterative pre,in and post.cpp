@@ -90,3 +90,130 @@ public:
     }
 };
 
+// 589. N-ary Tree Preorder Traversal
+
+class Solution {
+public:
+    void doit(Node* root,vector<int>& vv)
+    {
+     if(!root)
+         return;
+     vv.push_back(root->val);
+     for(auto xx:root->children)
+         doit(xx,vv);
+     
+    }
+    vector<int> preorder(Node* root)
+    {
+     if(!root)
+         return {};
+     vector<int>vv;
+     doit(root,vv);
+     return vv;
+    }
+};
+
+// 590. N-ary Tree Postorder Traversal
+
+class Solution {
+public:
+    void doit(Node* root,vector<int>& vv)
+    {
+     if(!root)
+         return;
+     for(auto xx:root->children)
+         doit(xx,vv);
+     vv.push_back(root->val);
+    }
+    vector<int> postorder(Node* root)
+    {
+     if(!root)
+         return {};
+     vector<int>vv;
+     doit(root,vv);
+     return vv;
+    }
+};
+
+// 429. N-ary Tree Level Order Traversal
+
+class Solution {
+public:
+    void doit(vector<vector<int>>& ans,Node* root)
+    {
+     queue<Node*>q;
+     q.push(root);
+     while(!q.empty())
+     {
+      int zz=q.size();
+      vector<int>vv;
+      while(zz--)
+      {
+       Node* cur=q.front();
+       q.pop();
+       vv.push_back(cur->val);
+       for(auto xx:cur->children)
+           q.push(xx);
+      }
+      ans.push_back(vv);
+     }
+    }
+    vector<vector<int>> levelOrder(Node* root)
+    {
+      vector<vector<int>>ans;
+      if(!root)
+          return ans;
+      doit(ans,root);
+      return ans;
+      
+          
+    }
+};
+
+// 559. Maximum Depth of N-ary Tree
+
+
+class Solution {
+public:
+    int doit(Node* root)
+    {
+     if(!root)
+         return 0;
+     else
+     {
+      int depth=0;   
+      for(auto xx:root->children)
+          depth=max(depth,doit(xx));
+      return (1+depth);
+          
+          
+     }
+    }
+    
+    // int doit1(Node* root)
+    // {
+    //  queue<Node*>q;
+    //  q.push(root);
+    //  int ans=0;
+    //  while(!q.empty())
+    //  {
+    //   int zz=q.size();
+    //   while(zz--)
+    //   {
+    //    Node* cur=q.front();
+    //    q.pop();
+    //    for(auto xx:cur->children)
+    //        q.push(xx);
+    //   }
+    //   ans++;
+    //  }
+    //  return ans;
+    // }
+    
+    int maxDepth(Node* root) 
+    {
+     if(!root)
+         return 0;
+     return doit(root);
+    }
+};
