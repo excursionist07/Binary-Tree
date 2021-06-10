@@ -59,3 +59,66 @@ Node * deSerialize(vector<int> &A)
 
   return temp;
 }
+
+// 449. Serialize and Deserialize BST
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Codec {
+public:
+
+    
+    void preorder(TreeNode* root,string& str)
+    {
+     if(!root)
+       return;
+     str+=to_string(root->val) + ",";
+     preorder(root->left,str);
+     preorder(root->right,str);
+    }
+    
+    string serialize(TreeNode* root)
+    {
+     if(!root)return " ";
+     string str="";
+     preorder(root,str);
+     return str;
+    
+    }
+
+    // Decodes your encoded data to tree.
+    int go(string& data,int& pos)
+    {
+     pos=data.find(',');
+     int value=stoi(data.substr(0,pos));
+     return value;
+    }
+    TreeNode* doit(string& data,int mn,int mx)
+    {
+     if(!data.length())return NULL;
+     int pos=0;
+     int value=go(data,pos);
+     if(value<mn || value>mx)return NULL;
+     data=data.substr(pos+1);// after using number delete the used & this statement should be below upper statement b'coz in recursion it is needed
+     
+     TreeNode* cur=new TreeNode(value);
+     cur->left=doit(data,mn,cur->val);
+     cur->right=doit(data,cur->val,mx);
+     return cur;
+    }
+    
+    TreeNode* deserialize(string data)
+    {
+      if(data==" ")return NULL;
+      return doit(data,INT_MIN,INT_MAX);
+      
+    }
+};
+
