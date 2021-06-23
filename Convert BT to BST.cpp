@@ -1,4 +1,4 @@
-void in1(Node* root,vector<int>&vv)
+void in1(Node* root,vector<int>&vv) // can do any travaersal here
 {
  if(!root)
   return;
