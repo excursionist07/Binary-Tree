@@ -66,7 +66,7 @@ public:
      if(!root)
          return;
      if(root->val==sum)
-         ans++;
+         ans++;  // don't use return here if found like u do in upper questions
      doit(root->left,sum-root->val);
      doit(root->right,sum-root->val);
     }
