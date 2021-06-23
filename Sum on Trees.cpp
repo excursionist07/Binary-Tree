@@ -139,24 +139,7 @@ bool isSumTree(Node* root)
      return (root->data==L+R && isSumTree(root->left) && isSumTree(root->right));
 }
 
-// Transform to Sum Tree
 
-int convert(Node* root)
-{
- if(!root)
-  return 0;
- int old=root->data;
- root->data=convert(root->left)+convert(root->right);
- return old+root->data;
- 
-}
-void toSumTree(Node *node)
-{
-  if(!node)
-   return;
-  convert(node);
-  
-}
 
 // Sum of all the numbers that are formed from root to leaf paths
 
@@ -185,30 +168,7 @@ public:
     }
 };
 
-// Maximum path sum between two leaves of a binary tree
 
-int doit(Node* root,int &res)
-{
- if(!root)
-  return 0;
- if(!root->left && !root->right)
-  return root->data;
- int L=doit(root->left,res);
- int R=doit(root->right,res);
- if(root->left && root->right)
- {
-  res=max(res,L+R+root->data);
-  return max(L,R)+root->data;
- }
- return (!root->left) ? R+root->data :L+root->data; // If any of the two children is empty, return root sum for root being on one side
-      
-}
-int maxPathSum(Node* root)
-{ 
-  int res=INT_MIN;
-  doit(root,res);
-  return res;
-}
 
 // Count Number of SubTrees having given Sum
 
@@ -247,3 +207,47 @@ public:
      
     }
 };
+
+// Transform to Sum Tree
+
+int convert(Node* root)
+{
+ if(!root)
+  return 0;
+ int old=root->data;
+ root->data=convert(root->left)+convert(root->right);
+ return old+root->data;
+ 
+}
+void toSumTree(Node *node)
+{
+  if(!node)
+   return;
+  convert(node);
+  
+}
+
+// Maximum path sum between two leaves of a binary tree
+
+int doit(Node* root,int &res)
+{
+ if(!root)
+  return 0;
+ if(!root->left && !root->right)
+  return root->data;
+ int L=doit(root->left,res);
+ int R=doit(root->right,res);
+ if(root->left && root->right)
+ {
+  res=max(res,L+R+root->data);
+  return max(L,R)+root->data;
+ }
+ return (!root->left) ? R+root->data :L+root->data; // If any of the two children is empty, return root sum for root being on one side
+      
+}
+int maxPathSum(Node* root)
+{ 
+  int res=INT_MIN;
+  doit(root,res);
+  return res;
+}
