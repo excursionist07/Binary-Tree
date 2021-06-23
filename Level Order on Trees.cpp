@@ -190,7 +190,7 @@ public:
     }
 };
 
-// 117. Populating Next Right Pointers in Each Node II (Any Tree)
+// 117. Populating Next Right Pointers in Each Node II (Any Tree)  --> (this ssol'n can work in upper case also (Q.No.-- 116))
 
 class Solution {
 public:
