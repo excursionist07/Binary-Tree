@@ -43,12 +43,12 @@ void postOrder(Node* root) // USING TWO STACKS ,first do DLR
  if(root==NULL)
   return;
  stack<Node*>s1,s2;
- s1.push(root);
+ s1.push(root); 
  while(!s1.empty())
  {
   Node *cur=s1.top();
   s1.pop();
-  s2.push(cur);
+  s2.push(cur); // whie printing push it in other stack
   if(cur->left)
    s1.push(cur->left);
   if(cur->right)
