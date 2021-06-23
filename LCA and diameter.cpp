@@ -195,7 +195,7 @@ void findPreSuc(Node* root, Node*& pre, Node*& suc, int key)
 
 }
 
-// Diameter of tree
+// Diameter of tree  --> O(n) Time complexity
 
 int height(Node *root)
 {
