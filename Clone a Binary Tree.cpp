@@ -5,7 +5,7 @@ class Solution{
     /* The function should clone the passed tree and return 
        root of the cloned tree */
   
-    Node* doit(Node* tree,unordered_map<Node*,Node*>&mp)
+    Node* doit(Node* tree,unordered_map<Node*,Node*>&mp) // traversing in original tree
     {
      if(!tree)
       return NULL;
@@ -16,7 +16,7 @@ class Solution{
      return cur;
     }
   
-    void RandomPointer(Node* tree,Node* clonedRoot,unordered_map<Node*,Node*>&mp)
+    void RandomPointer(Node* tree,Node* clonedRoot,unordered_map<Node*,Node*>&mp) // // traversing in cloned tree
     {
      if(!clonedRoot)
        return;
