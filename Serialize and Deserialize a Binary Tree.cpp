@@ -3,7 +3,7 @@
 class Solution
 {
     public:
-    //Function to serialize a tree and return a list containing nodes of tree.
+    //Function to serialize a tree and return an array containing nodes of tree.
  
     void preorder(Node* root,vector<int>& vv)
     {
